@@ -1,0 +1,49 @@
+<style>
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 16px;
+  }
+
+  .card {
+    background-color: #a3a3a3;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    width: calc(33.333% - 32px);
+    box-sizing: border-box;
+  }
+
+  .card h2 {
+    margin-top: 0;
+    font-size: 1.25em;
+  }
+
+  .card p {
+    margin-bottom: 0;
+    color: #555;
+  }
+  .title{
+    color: #2e2e2e;
+  }
+
+  @media (max-width: 768px) {
+    .card-container{
+        flex-direction: column;
+    }
+    .card{
+        width: 100%;
+        box-sizing: border-box;
+        padding-bottom: 16px;
+    }
+  }
+</style>
+<h1>Datos obtenidos de la API</h1>
+<div class="card-container" *ngIf="data">
+  <div class="card" *ngFor="let item of data">
+    <h2 class="title">{{ item.title }}</h2>
+    <p>{{ item.body }}</p>
+  </div>
+</div>
